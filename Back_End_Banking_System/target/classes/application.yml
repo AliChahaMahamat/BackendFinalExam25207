@@ -1,0 +1,42 @@
+server:
+  port: 8083
+  error:
+    include-message: always
+    include-binding-errors: always
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/BankingApp
+    username: postgres
+    password: ali123
+    driver-class-name: org.postgresql.Driver  # Added PostgreSQL driver
+  jpa:
+    hibernate:
+      ddl-auto: update  # Use 'update' or 'create-drop' based on your need
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: mamayali901@gmail.com
+    password:
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000
+
+logging:
+  level:
+    root: INFO
+    org.springframework.security: DEBUG
+    com.online.banking.Back_End_Banking_System: DEBUG
+  file:
+    name: logs/application.log
